@@ -6,75 +6,63 @@
 <title>Dr. Surbhis Dental & Aesthetics</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════
-   THEME SYSTEM (Dark/Gold & White/Purple)
-   ═══════════════════════════════════════ */
 :root {
   --primary: #c9a84c;
   --primary-light: #e2c97e;
-  --primary-dark: #a8872e;
   --text-dark: #f0ece4;
   --text-mid: #c8c0b0;
   --text-light: #9a9080;
-  --bg-dark: #050403;
-  --bg-section: #0a0908;
-  --bg-card: rgba(20, 18, 14, 0.6);
-  --border: rgba(201,168,76,0.15);
-  --shadow: 0 8px 32px rgba(0,0,0,0.4);
-  --glass-bg: rgba(20, 18, 14, 0.65);
-  --glass-border: rgba(201,168,76,0.2);
-  --glass-shadow: 0 8px 32px rgba(0,0,0,0.5);
-  --glass-blur: blur(20px);
-  --gradient-hero: linear-gradient(135deg, #050403 0%, #0d0b09 40%, #1a1714 100%);
+  --bg-space: #020107;
+  --glass-bg: rgba(10, 10, 20, 0.45);
+  --glass-border: rgba(201, 168, 76, 0.2);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --glass-blur: blur(24px);
   --gradient-accent: linear-gradient(135deg, #c9a84c, #e2c97e);
-  --input-bg: rgba(26, 23, 20, 0.8);
+  --input-bg: rgba(20, 20, 30, 0.6);
   --tag-bg: rgba(201,168,76,0.1);
+  --section-bg: rgba(2, 1, 7, 0.4);
 }
 
 [data-theme="light"] {
   --primary: #8b5cf6;
   --primary-light: #a78bfa;
-  --primary-dark: #6d28d9;
   --text-dark: #1a1040;
   --text-mid: #4a4070;
   --text-light: #8878b0;
-  --bg-dark: #f8f6ff;
-  --bg-section: #ffffff;
-  --bg-card: rgba(255, 255, 255, 0.6);
-  --border: rgba(74,45,143,0.1);
-  --shadow: 0 8px 32px rgba(74,45,143,0.08);
-  --glass-bg: rgba(255, 255, 255, 0.65);
-  --glass-border: rgba(255, 255, 255, 0.8);
-  --glass-shadow: 0 8px 32px rgba(74,45,143,0.1);
-  --glass-blur: blur(20px);
-  --gradient-hero: linear-gradient(135deg, #ffffff 0%, #f8f6ff 40%, #ede8ff 100%);
+  --bg-space: #f0ecff;
+  --glass-bg: rgba(255, 255, 255, 0.45);
+  --glass-border: rgba(139, 92, 246, 0.2);
+  --glass-shadow: 0 8px 32px rgba(139, 92, 246, 0.1);
+  --glass-blur: blur(24px);
   --gradient-accent: linear-gradient(135deg, #8b5cf6, #a78bfa);
-  --input-bg: rgba(244, 240, 255, 0.8);
-  --tag-bg: rgba(74,45,143,0.08);
+  --input-bg: rgba(240, 236, 255, 0.6);
+  --tag-bg: rgba(139, 92, 246, 0.1);
+  --section-bg: rgba(240, 236, 255, 0.4);
 }
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;color:var(--text-dark);background:var(--bg-dark);overflow-x:hidden;transition:background .5s,color .5s}
+body{font-family:'DM Sans',sans-serif;color:var(--text-dark);background:var(--bg-space);overflow-x:hidden;transition:background .5s,color .5s}
 
-/* ANIMATED BACKGROUND CANVAS */
 #bgCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;width:100%;height:100%}
 
-/* NAVBAR */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:12px 5%;background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border-bottom:1px solid var(--glass-border);box-shadow:var(--glass-shadow);transition:all .4s}
-nav.scrolled{padding:8px 5%}
+.glass{background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border:1px solid var(--glass-border);box-shadow:var(--glass-shadow),inset 0 1px 0 rgba(255,255,255,0.05);border-radius:24px;transition:background .5s,border-color .5s,box-shadow .5s}
+
+.container{width:100%;max-width:1280px;margin:0 auto;padding:0 40px}
+@media(max-width:768px){.container{padding:0 20px}}
+
+nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);width:calc(100% - 80px);max-width:1280px;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:10px 24px;border-radius:20px;transition:all .4s}
+nav.scrolled{top:8px;width:calc(100% - 40px);box-shadow:var(--glass-shadow)}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;z-index:1002}
-.logo-icon{width:40px;height:40px;background:var(--gradient-accent);border-radius:12px;display:flex;align-items:center;justify-content:center;transition:background .5s}
+.logo-icon{width:38px;height:38px;background:var(--gradient-accent);border-radius:12px;display:flex;align-items:center;justify-content:center}
 .logo-icon svg{width:20px;height:20px;fill:white}
 .logo-text{display:flex;flex-direction:column;line-height:1}
-.logo-text strong{font-family:'Playfair Display',serif;font-size:1rem;color:var(--primary);letter-spacing:.5px}
+.logo-text strong{font-family:'Playfair Display',serif;font-size:1rem;color:var(--primary)}
 .logo-text span{font-size:.55rem;color:var(--text-light);letter-spacing:1.5px;text-transform:uppercase;margin-top:1px}
 .nav-actions{display:flex;align-items:center;gap:12px;z-index:1002}
 .desktop-links{display:flex;gap:24px;list-style:none}
-.desktop-links a{text-decoration:none;color:var(--text-mid);font-size:.82rem;font-weight:500;letter-spacing:.3px;position:relative;transition:color .3s}
-.desktop-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--primary);transform:scaleX(0);transition:transform .3s}
+.desktop-links a{text-decoration:none;color:var(--text-mid);font-size:.82rem;font-weight:500;transition:color .3s}
 .desktop-links a:hover{color:var(--primary)}
-.desktop-links a:hover::after{transform:scaleX(1)}
 .btn-book{background:var(--gradient-accent);color:white;padding:9px 20px;border-radius:50px;text-decoration:none;font-size:.78rem;font-weight:600;transition:all .3s;box-shadow:0 4px 15px rgba(0,0,0,.2);border:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
 .btn-book:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.3)}
 .theme-toggle-nav{width:34px;height:34px;border-radius:50%;border:1px solid var(--glass-border);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:all .3s;color:var(--primary)}
@@ -84,16 +72,15 @@ nav.scrolled{padding:8px 5%}
 [data-theme="light"] .theme-toggle-nav .icon-moon{display:none}
 .menu-toggle{display:none;width:34px;height:34px;border-radius:10px;border:1px solid var(--glass-border);background:transparent;cursor:pointer;color:var(--primary);font-size:1.1rem;align-items:center;justify-content:center;transition:all .3s}
 .menu-toggle:hover{background:var(--primary);color:white}
-.sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9998;opacity:0;visibility:hidden;transition:all .3s;backdrop-filter:blur(4px)}
+.sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9998;opacity:0;visibility:hidden;transition:all .3s;backdrop-filter:blur(4px)}
 .sidebar-overlay.active{opacity:1;visibility:visible}
-.mobile-menu{position:fixed;top:0;right:0;width:280px;height:100vh;background:var(--glass-bg);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border-left:1px solid var(--glass-border);z-index:9999;transform:translateX(100%);transition:transform .3s ease;padding:70px 24px 24px;display:flex;flex-direction:column;gap:16px}
+.mobile-menu{position:fixed;top:0;right:0;width:280px;height:100vh;background:var(--glass-bg);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border-left:1px solid var(--glass-border);z-index:9999;transform:translateX(100%);transition:transform .3s ease;padding:70px 24px 24px;display:flex;flex-direction:column;gap:16px}
 .mobile-menu.active{transform:translateX(0)}
 .close-menu{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;border:1px solid var(--glass-border);background:transparent;color:var(--primary);font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .sidebar-links{list-style:none;display:flex;flex-direction:column;gap:6px}
-.sidebar-links a{text-decoration:none;color:var(--text-dark);font-size:1rem;font-weight:600;padding:10px 0;border-bottom:1px solid var(--border);display:block}
+.sidebar-links a{text-decoration:none;color:var(--text-dark);font-size:1rem;font-weight:600;padding:10px 0;border-bottom:1px solid var(--glass-border);display:block}
 .sidebar-book{margin-top:auto;width:100%;text-align:center;padding:12px;font-size:.9rem}
 
-/* FIXED BUTTONS */
 .whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:9997;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s;animation:waBounce 2s infinite}
 .whatsapp-float:hover{transform:scale(1.1)}
 .whatsapp-float svg{width:30px;height:30px;fill:#fff}
@@ -102,30 +89,24 @@ nav.scrolled{padding:8px 5%}
 #back-to-top.visible{opacity:1;transform:translateY(0)}
 #back-to-top:hover{transform:translateY(-3px) scale(1.05)}
 
-/* CURSOR */
-.cursor{position:fixed;width:10px;height:10px;background:var(--primary);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference}
-.cursor-ring{position:fixed;width:36px;height:36px;border:2px solid var(--primary-light);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.5;transition:all .3s ease}
 ::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:var(--bg-dark)}
+::-webkit-scrollbar-track{background:var(--bg-space)}
 ::-webkit-scrollbar-thumb{background:var(--primary);border-radius:3px}
 
-section{position:relative;overflow:hidden;transition:background .5s;z-index:1}
+section{position:relative;overflow:hidden;transition:background .5s;z-index:1;background:var(--section-bg)}
 
-/* HERO - TIGHTER SPACING */
-#hero{min-height:100vh;background:var(--gradient-hero);display:flex;align-items:center;padding:100px 5% 60px;transition:background .5s}
-.hero-bg-orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.12;animation:floatOrb 8s ease-in-out infinite;pointer-events:none}
-.hero-bg-orb.o1{width:400px;height:400px;background:radial-gradient(var(--primary),transparent);top:-80px;right:5%}
-@keyframes floatOrb{0%,100%{transform:translateY(0)}50%{transform:translateY(-30px)}}
-.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;max-width:1300px;margin:0 auto;width:100%;position:relative;z-index:2}
-.hero-content{}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--tag-bg);border:1px solid var(--border);padding:5px 14px;border-radius:50px;font-size:.72rem;font-weight:600;color:var(--primary);letter-spacing:.5px;margin-bottom:18px}
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 60px;background:transparent}
+.hero-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
+.hero-content{max-width:580px;display:flex;flex-direction:column;align-items:flex-start;text-align:left}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--tag-bg);border:1px solid var(--glass-border);padding:5px 14px;border-radius:50px;font-size:.72rem;font-weight:600;color:var(--primary);letter-spacing:.5px;margin-bottom:16px}
 .hero-tag span{width:7px;height:7px;background:var(--primary-light);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:.7}}
 h1.hero-name{font-family:'Playfair Display',serif;font-size:clamp(2.4rem, 5vw, 3.8rem);font-weight:700;color:var(--text-dark);line-height:1.1;margin-bottom:10px}
 h1.hero-name em{color:var(--primary);font-style:normal}
 .hero-subtitle{font-size:1rem;font-weight:600;color:var(--primary);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
-.hero-tagline{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--primary-light);font-style:italic;margin-bottom:14px;min-height:1.4em}
-.hero-desc{font-size:.9rem;color:var(--text-mid);line-height:1.7;margin-bottom:28px;max-width:480px}
+.hero-tagline{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--primary-light);font-style:italic;margin-bottom:14px;min-height:1.4em;width:100%}
+.hero-desc{font-size:.9rem;color:var(--text-mid);line-height:1.7;margin-bottom:28px;max-width:480px;width:100%}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
 .btn-primary{background:var(--gradient-accent);color:white;padding:12px 26px;border-radius:50px;text-decoration:none;font-weight:600;font-size:.85rem;transition:all .3s;box-shadow:0 6px 22px rgba(0,0,0,.28);display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.38)}
@@ -135,24 +116,25 @@ h1.hero-name em{color:var(--primary);font-style:normal}
 .stat{text-align:center}
 .stat-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--primary);display:block}
 .stat-label{font-size:.68rem;color:var(--text-light);letter-spacing:.5px;margin-top:2px}
-.hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
-.hero-img-main{width:85%;max-width:360px;border-radius:36px;position:relative;z-index:2;box-shadow:0 30px 80px rgba(0,0,0,.3);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--glass-border);background:var(--glass-bg);backdrop-filter:var(--glass-blur)}
+
+/* FIXED HERO VISUAL - NO FLEX, BLOCK CENTERED */
+.hero-visual{position:relative;width:100%;max-width:420px;margin:0 auto}
+.hero-img-main{width:100%;border-radius:40px;position:relative;z-index:2;box-shadow:0 30px 80px rgba(0,0,0,.4);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .hero-img-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:var(--text-dark)}
-.hero-badge{position:absolute;background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);border-radius:14px;padding:10px 14px;display:flex;align-items:center;gap:10px;z-index:3;animation:badgeFloat 4s ease-in-out infinite}
-.hero-badge.b1{top:10%;left:-10%;animation-delay:0s}
-.hero-badge.b2{bottom:15%;right:-10%;animation-delay:2s}
+.hero-badge{position:absolute;z-index:3;animation:badgeFloat 4s ease-in-out infinite;border-radius:16px;padding:12px 16px;display:flex;align-items:center;gap:10px}
+.hero-badge.b1{top:10%;left:-5%;animation-delay:0s}
+.hero-badge.b2{bottom:20%;right:-5%;animation-delay:2s}
 @keyframes badgeFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .badge-icon{width:36px;height:36px;background:var(--gradient-accent);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:1rem}
 .badge-text strong{display:block;font-size:.78rem;color:var(--text-dark);font-weight:700}
 .badge-text span{font-size:.65rem;color:var(--text-light)}
-.features-row{position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);display:flex;gap:6px;background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);border-radius:14px;padding:10px 16px;white-space:nowrap;z-index:4;width:max-content}
-.feat-item{display:flex;flex-direction:column;align-items:center;gap:2px;padding:0 10px;border-right:1px solid var(--border)}
+.features-row{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:6px;white-space:nowrap;z-index:4;width:max-content;padding:10px 16px;border-radius:16px}
+.feat-item{display:flex;flex-direction:column;align-items:center;gap:2px;padding:0 10px;border-right:1px solid var(--glass-border)}
 .feat-item:last-child{border:none}
 .feat-icon{font-size:1rem}
 .feat-label{font-size:.6rem;color:var(--text-mid);font-weight:600;letter-spacing:.3px;text-align:center}
 
-/* SECTIONS - UNIFORM SPACING */
-.section-tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--primary);background:var(--tag-bg);padding:4px 12px;border-radius:50px;margin-bottom:12px;border:1px solid var(--border)}
+.section-tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--primary);background:var(--tag-bg);border:1px solid var(--glass-border);padding:4px 12px;border-radius:50px;margin-bottom:12px}
 .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.7rem, 3.5vw, 2.4rem);font-weight:700;color:var(--text-dark);line-height:1.2;margin-bottom:10px}
 .section-title span{color:var(--primary)}
 .section-desc{font-size:.9rem;color:var(--text-mid);line-height:1.7;max-width:500px}
@@ -161,13 +143,12 @@ h1.hero-name em{color:var(--primary);font-style:normal}
 .gold-line{width:40px;height:3px;background:var(--gradient-accent);border-radius:2px;margin:10px 0 0}
 .text-center .gold-line{margin:10px auto 0}
 
-/* ABOUT */
-#about{padding:80px 5%;background:var(--bg-section);transition:background .5s}
-.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;max-width:1300px;margin:0 auto}
+#about{padding:80px 0}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
 .about-img-wrap{position:relative}
-.about-img-main{width:100%;aspect-ratio:4/5;border-radius:20px;overflow:hidden;position:relative;border:1px solid var(--glass-border);background:var(--glass-bg);backdrop-filter:var(--glass-blur);display:flex;align-items:center;justify-content:center;font-size:8rem}
-.about-img-accent{position:absolute;bottom:-16px;right:-16px;width:48%;aspect-ratio:1;border-radius:18px;overflow:hidden;border:4px solid var(--bg-section);background:var(--glass-bg);backdrop-filter:var(--glass-blur);display:flex;align-items:center;justify-content:center;font-size:3.5rem;transition:border-color .5s}
-.about-img-stats{position:absolute;top:16px;left:-16px;background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);border-radius:18px;padding:14px 18px}
+.about-img-main{width:100%;aspect-ratio:4/5;border-radius:24px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;font-size:8rem}
+.about-img-accent{position:absolute;bottom:-16px;right:-16px;width:48%;aspect-ratio:1;border-radius:20px;overflow:hidden;border:4px solid var(--bg-space);display:flex;align-items:center;justify-content:center;font-size:3.5rem}
+.about-img-stats{position:absolute;top:16px;left:-16px;padding:14px 18px;border-radius:20px}
 .about-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .about-stat{text-align:center}
 .about-stat-num{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--primary)}
@@ -177,45 +158,40 @@ h1.hero-name em{color:var(--primary);font-style:normal}
 .check-list li::before{content:'✓';width:22px;height:22px;min-width:22px;background:var(--gradient-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:.6rem;font-weight:900}
 .doctor-sig{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--primary);font-style:italic;margin-bottom:2px}
 .doctor-role{font-size:.72rem;color:var(--text-light);letter-spacing:1px;text-transform:uppercase}
-.about-video-card{display:flex;align-items:center;gap:12px;background:var(--tag-bg);border:1px solid var(--border);border-radius:14px;padding:12px 16px;margin-top:18px;cursor:pointer;transition:all .3s}
+.about-video-card{display:flex;align-items:center;gap:12px;border:1px solid var(--glass-border);border-radius:14px;padding:12px 16px;margin-top:18px;cursor:pointer;transition:all .3s;background:var(--glass-bg);backdrop-filter:blur(10px)}
 .about-video-card:hover{border-color:var(--primary);transform:translateX(4px)}
-.play-btn{width:38px;height:38px;background:var(--gradient-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:.9rem;flex-shrink:0;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.play-btn{width:38px;height:38px;background:var(--gradient-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:.9rem;flex-shrink:0}
 
-/* SERVICES */
-#services{padding:80px 5%;background:var(--bg-dark);transition:background .5s}
-.services-inner{max-width:1300px;margin:0 auto}
+#services{padding:80px 0}
 .services-header{margin-bottom:40px}
-.services-img-banner{width:100%;height:180px;border-radius:20px;margin-bottom:40px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;background:var(--gradient-accent);box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.services-img-banner{width:100%;height:180px;border-radius:24px;margin-bottom:40px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;background:var(--gradient-accent);box-shadow:0 20px 60px rgba(0,0,0,.2)}
 .services-img-banner::before{content:'Dr. SURBHIS DENTAL & AESTHETICS';font-family:'Playfair Display',serif;font-size:clamp(1.1rem, 3vw, 2rem);color:rgba(255,255,255,.9);letter-spacing:2px;font-weight:700;text-align:center;position:relative;z-index:2;padding:0 20px}
 .services-img-banner::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.15)}
 .services-categories{display:grid;grid-template-columns:1fr 1fr;gap:30px}
 .service-category h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--text-dark);margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .cat-icon{width:32px;height:32px;background:var(--gradient-accent);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.85rem}
 .service-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.service-card{background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);border-radius:16px;padding:14px;transition:all .3s;cursor:pointer}
+.service-card{padding:14px;transition:all .3s;cursor:pointer}
 .service-card:hover{border-color:var(--primary-light);transform:translateY(-4px)}
 .sc-icon{width:32px;height:32px;background:var(--tag-bg);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.9rem;margin-bottom:8px}
 .service-card h4{font-size:.8rem;font-weight:700;color:var(--text-dark);margin-bottom:4px}
 .service-card p{font-size:.7rem;color:var(--text-light);line-height:1.4}
 
-/* GALLERY */
-#gallery{padding:80px 5%;background:var(--bg-section);transition:background .5s}
-.gallery-inner{max-width:1300px;margin:0 auto}
+#gallery{padding:80px 0}
 .gallery-tabs{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
-.tab-btn{padding:7px 18px;border-radius:50px;font-size:.78rem;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--glass-bg);backdrop-filter:var(--glass-blur);color:var(--text-mid);transition:all .3s;font-family:'DM Sans',sans-serif}
+.tab-btn{padding:7px 18px;border-radius:50px;font-size:.78rem;font-weight:600;cursor:pointer;border:1px solid var(--glass-border);background:var(--glass-bg);backdrop-filter:blur(10px);color:var(--text-mid);transition:all .3s;font-family:'DM Sans',sans-serif}
 .tab-btn.active,.tab-btn:hover{background:var(--primary);color:white;border-color:var(--primary);box-shadow:none;backdrop-filter:none}
 .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.gallery-item{border-radius:18px;overflow:hidden;position:relative;aspect-ratio:16/9;cursor:pointer;border:1px solid var(--glass-border);background:var(--glass-bg);backdrop-filter:var(--glass-blur)}
+.gallery-item{border-radius:20px;overflow:hidden;position:relative;aspect-ratio:16/9;cursor:pointer}
 .gallery-item::before{content:'BEFORE';position:absolute;top:10px;left:10px;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);color:white;font-size:.55rem;font-weight:800;padding:3px 8px;border-radius:50px;letter-spacing:1px;z-index:2}
 .gallery-item::after{content:'AFTER';position:absolute;top:10px;right:10px;background:var(--primary);color:white;font-size:.55rem;font-weight:800;padding:3px 8px;border-radius:50px;letter-spacing:1px;z-index:2}
 .ba-split{width:100%;height:100%;display:flex;align-items:center;justify-content:center;gap:4px;font-size:3rem}
 .gallery-item:hover{transform:scale(1.02)}
-.gallery-label{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);background:var(--glass-bg);backdrop-filter:var(--glass-blur);padding:4px 12px;border-radius:50px;font-size:.65rem;font-weight:700;color:var(--primary);white-space:nowrap;border:1px solid var(--glass-border);z-index:2}
+.gallery-label{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);background:var(--glass-bg);backdrop-filter:blur(10px);padding:4px 12px;border-radius:50px;font-size:.65rem;font-weight:700;color:var(--primary);white-space:nowrap;border:1px solid var(--glass-border);z-index:2}
 
-/* APPOINTMENT */
-#appointment{padding:80px 5%;background:var(--bg-dark);transition:background .5s}
-.appt-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;max-width:1300px;margin:0 auto}
-.appt-form-card{background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);border-radius:22px;padding:30px}
+#appointment{padding:80px 0}
+.appt-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.appt-form-card{padding:30px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .form-group{margin-bottom:12px}
 .form-group label{display:block;font-size:.72rem;font-weight:600;color:var(--text-mid);margin-bottom:4px}
@@ -227,27 +203,25 @@ h1.hero-name em{color:var(--primary);font-style:normal}
 .btn-wa{width:100%;background:linear-gradient(135deg,#25d366,#128c7e);color:white;border:none;padding:12px;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .3s;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:8px}
 .btn-wa:hover{transform:translateY(-2px)}
 .why-items{display:flex;flex-direction:column;gap:12px;margin:18px 0}
-.why-item{display:flex;align-items:flex-start;gap:12px;background:var(--glass-bg);backdrop-filter:var(--glass-blur);border:1px solid var(--glass-border);border-radius:16px;padding:14px;transition:all .3s}
+.why-item{display:flex;align-items:flex-start;gap:12px;padding:14px;transition:all .3s}
 .why-item:hover{border-color:var(--primary);transform:translateX(4px)}
 .why-icon{width:38px;height:38px;background:var(--gradient-accent);border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-size:1rem;flex-shrink:0}
 .why-text strong{display:block;font-size:.82rem;color:var(--text-dark);font-weight:700;margin-bottom:2px}
 .why-text span{font-size:.72rem;color:var(--text-light);line-height:1.4}
-.emergency-box{background:var(--glass-bg);backdrop-filter:var(--glass-blur);border:1px solid var(--primary);border-radius:18px;padding:22px;color:var(--text-dark);text-align:center;position:relative;overflow:hidden}
+.emergency-box{border:1px solid var(--primary);border-radius:20px;padding:22px;color:var(--text-dark);text-align:center;position:relative;overflow:hidden;background:var(--glass-bg);backdrop-filter:var(--glass-blur)}
 .emergency-box::before{content:'';position:absolute;inset:0;background:var(--gradient-accent);opacity:0.1}
 .emergency-box h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:4px;position:relative}
 .emergency-box .phone{font-size:1.5rem;font-weight:700;letter-spacing:1px;margin:6px 0;color:var(--primary);position:relative}
 .emergency-box p{font-size:.72rem;opacity:.8;position:relative}
 
-/* TESTIMONIALS */
-#testimonials{padding:80px 5%;background:var(--bg-section);transition:background .5s}
-.test-inner{max-width:1300px;margin:0 auto}
+#testimonials{padding:80px 0}
 .rating-hero{display:flex;align-items:center;gap:16px;margin-bottom:40px;flex-wrap:wrap}
 .rating-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:var(--text-dark);line-height:1}
 .rating-stars{display:flex;gap:2px;margin-bottom:4px}
 .star{color:#fbbf24;font-size:1.2rem}
 .rating-source{font-size:.72rem;color:var(--text-light)}
 .test-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:16px;margin-bottom:40px}
-.test-card{background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);border-radius:18px;padding:20px;transition:all .3s;position:relative}
+.test-card{padding:20px;transition:all .3s;position:relative}
 .test-card:hover{transform:translateY(-5px);border-color:var(--primary)}
 .test-card::before{content:'"';position:absolute;top:8px;right:14px;font-family:'Playfair Display',serif;font-size:3.5rem;color:var(--primary);opacity:.1;line-height:1}
 .test-text{font-size:.82rem;color:var(--text-mid);line-height:1.7;margin-bottom:14px;font-style:italic}
@@ -256,32 +230,31 @@ h1.hero-name em{color:var(--primary);font-style:normal}
 .test-name{font-weight:700;font-size:.82rem;color:var(--text-dark)}
 .test-service{font-size:.65rem;color:var(--text-light)}
 
-/* CONTACT */
-#contact{padding:80px 5%;background:var(--bg-dark);transition:background .5s}
-.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;max-width:1300px;margin:0 auto}
+#contact{padding:80px 0}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
 .contact-items{display:flex;flex-direction:column;gap:14px;margin:18px 0}
 .contact-item{display:flex;align-items:flex-start;gap:12px}
 .ci-icon{width:38px;height:38px;background:var(--gradient-accent);border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-size:.9rem;flex-shrink:0}
 .ci-text strong{display:block;font-size:.72rem;color:var(--text-light);font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:2px}
 .ci-text p{font-size:.85rem;color:var(--text-dark);font-weight:500}
 .hours-table{width:100%;margin:14px 0 20px;border-collapse:collapse}
-.hours-table td{padding:6px 0;font-size:.8rem;border-bottom:1px solid var(--border)}
+.hours-table td{padding:6px 0;font-size:.8rem;border-bottom:1px solid var(--glass-border)}
 .hours-table td:first-child{color:var(--text-mid);font-weight:600}
 .hours-table td:last-child{text-align:right;color:var(--text-dark)}
 .social-links{display:flex;gap:10px}
-.social-link{width:36px;height:36px;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--primary);transition:all .3s;text-decoration:none}
-.social-link:hover{background:var(--primary);color:white;border-color:var(--primary);transform:translateY(-3px)}
-.map-container{width:100%;height:260px;background:var(--glass-bg);backdrop-filter:var(--glass-blur);border:1px solid var(--glass-border);border-radius:18px;display:flex;align-items:center;justify-content:center}
-.connect-card{background:var(--glass-bg);backdrop-filter:var(--glass-blur);border:1px solid var(--primary);border-radius:20px;padding:26px;color:var(--text-dark);text-align:center;position:relative;overflow:hidden}
+.social-link{width:36px;height:36px;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--primary);transition:all .3s;text-decoration:none;backdrop-filter:blur(10px)}
+.social-link:hover{background:var(--primary);color:white;border-color:var(--primary)}
+.map-container{width:100%;height:260px;display:flex;align-items:center;justify-content:center}
+.connect-card{border:1px solid var(--primary);border-radius:20px;padding:26px;color:var(--text-dark);text-align:center;position:relative;overflow:hidden;background:var(--glass-bg);backdrop-filter:var(--glass-blur)}
 .connect-card::before{content:'';position:absolute;inset:0;background:var(--gradient-accent);opacity:0.1}
 .connect-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:6px;position:relative}
 .connect-card p{font-size:.8rem;opacity:.8;margin-bottom:16px;position:relative}
 .connect-social{display:flex;justify-content:center;gap:10px;position:relative}
-.cs-btn{width:38px;height:38px;background:var(--tag-bg);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .3s;cursor:pointer}
+.cs-btn{width:38px;height:38px;background:var(--tag-bg);border:1px solid var(--glass-border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .3s;cursor:pointer}
 .cs-btn:hover{background:var(--primary);color:white;border-color:var(--primary)}
 
-footer{background:#050403;color:rgba(255,255,255,.4);text-align:center;padding:20px 5%;font-size:.75rem;border-top:1px solid var(--border);position:relative;z-index:1}
-[data-theme="light"] footer{background:#1a1714}
+footer{background:rgba(0,0,0,.2);color:rgba(255,255,255,.4);text-align:center;padding:20px 24px;font-size:.75rem;border-top:1px solid var(--glass-border);position:relative;z-index:1;backdrop-filter:blur(10px)}
+[data-theme="light"] footer{background:rgba(255,255,255,.2);color:var(--text-light)}
 .footer-gold{color:var(--primary)}
 
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
@@ -306,7 +279,7 @@ footer{background:#050403;color:rgba(255,255,255,.4);text-align:center;padding:2
 .hero-stats{animation:heroReveal .6s ease .8s both}
 .hero-visual{animation:heroReveal .6s ease .4s both}
 
-#loader{position:fixed;inset:0;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg-dark);transition:opacity .5s,visibility .5s}
+#loader{position:fixed;inset:0;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg-space);transition:opacity .5s,visibility .5s}
 .loader-logo{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--primary);font-weight:700;margin-bottom:6px}
 .loader-sub{font-size:.65rem;color:var(--text-light);letter-spacing:3px;text-transform:uppercase;margin-bottom:18px}
 .loader-bar{width:160px;height:3px;background:rgba(128,128,128,.15);border-radius:2px;overflow:hidden}
@@ -314,16 +287,18 @@ footer{background:#050403;color:rgba(255,255,255,.4);text-align:center;padding:2
 @keyframes loadFill{from{width:0}to{width:100%}}
 #loader.hide{opacity:0;visibility:hidden;pointer-events:none}
 
-/* RESPONSIVE - TIGHTER MOBILE LAYOUT */
+/* RESPONSIVE */
 @media(max-width:900px){
-  .hero-inner{grid-template-columns:1fr;text-align:center;gap:30px}
-  .hero-content{max-width:100%}
-  .hero-desc{max-width:100%;margin-left:auto;margin-right:auto}
-  .hero-visual{display:flex;margin-top:10px;justify-content:center}
-  .hero-img-main{max-width:260px}
-  .hero-badge{display:none}
-  .hero-btns{justify-content:center}
-  .hero-stats{justify-content:center}
+  .hero-inner{grid-template-columns:1fr;text-align:center;gap:40px}
+  .hero-content{max-width:100%;align-items:center;text-align:center}
+  .hero-desc{max-width:500px;margin-left:auto;margin-right:auto}
+  .hero-visual{max-width:300px}
+  .hero-badge{display:flex !important;border-radius:12px !important;padding:8px 12px !important;gap:6px !important}
+  .hero-badge.b1{top:8%;left:0}
+  .hero-badge.b2{bottom:25%;right:0}
+  .badge-icon{width:30px;height:30px;font-size:.8rem;border-radius:8px}
+  .badge-text strong{font-size:.68rem}
+  .badge-text span{font-size:.52rem}
   .features-row{position:relative;bottom:auto;left:auto;transform:none;margin-top:16px;justify-content:center;width:auto}
   .about-inner,.appt-inner,.contact-inner{grid-template-columns:1fr}
   .about-img-stats{left:8px;top:8px;padding:10px 14px}
@@ -333,19 +308,20 @@ footer{background:#050403;color:rgba(255,255,255,.4);text-align:center;padding:2
   .desktop-links,.desktop-btn{display:none!important}
   .menu-toggle{display:flex}
   .cursor,.cursor-ring{display:none!important}
-  .whatsapp-float{width:48px;height:48px;bottom:16px;right:16px}
-  .whatsapp-float svg{width:26px;height:26px}
-  #back-to-top{bottom:16px;left:16px;width:40px;height:40px;font-size:1rem}
-  #hero{padding:80px 4% 40px}
-  section{padding:60px 4%}
+  #hero{padding:100px 0 40px}
+  section{padding:60px 0}
+  nav{width:calc(100% - 40px);top:12px;border-radius:16px}
 }
 @media(max-width:500px){
   .service-grid{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
   .hero-stats{flex-wrap:wrap;gap:16px}
-  .hero-img-main{max-width:200px;border-radius:28px}
-  section{padding:50px 4%}
-  #hero{padding:70px 4% 30px}
+  .hero-visual{max-width:300px}
+  .hero-badge{transform:scale(0.85)}
+  .hero-badge.b1{left:-5px;top:5%}
+  .hero-badge.b2{right:-5px;bottom:30%}
+  section{padding:50px 0}
+  #hero{padding:80px 0 30px}
   .services-img-banner{height:120px;margin-bottom:24px}
   .appt-form-card{padding:20px}
   .features-row{padding:8px 12px;gap:4px}
@@ -374,7 +350,7 @@ footer{background:#050403;color:rgba(255,255,255,.4);text-align:center;padding:2
 </a>
 
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
-<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu glass" id="mobileMenu">
   <button class="close-menu" id="closeMenu">✕</button>
   <ul class="sidebar-links">
     <li><a href="#hero">Home</a></li>
@@ -387,7 +363,7 @@ footer{background:#050403;color:rgba(255,255,255,.4);text-align:center;padding:2
   <a href="#appointment" class="btn-book sidebar-book">📅 Book Appointment</a>
 </div>
 
-<nav id="navbar">
+<nav id="navbar" class="glass">
   <a href="#hero" class="logo">
     <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 5 6 8c0 2 .5 3.5 1.5 5L9 19c.5 1.5 1.5 3 3 3s2.5-1.5 3-3l1.5-6C17.5 11.5 18 10 18 8c0-3-2.5-6-6-6z"/></svg></div>
     <div class="logo-text"><strong>Dr. SURBHIS</strong><span>Dental & Aesthetics</span></div>
@@ -408,248 +384,149 @@ footer{background:#050403;color:rgba(255,255,255,.4);text-align:center;padding:2
 </nav>
 
 <section id="hero">
-  <div class="hero-bg-orb o1"></div>
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-tag"><span></span> Welcome To</div>
-      <h1 class="hero-name">Dr. <em>SURBHIS</em></h1>
-      <div class="hero-subtitle">Dental & Aesthetics</div>
-      <div class="hero-tagline">Where Your Smile Meets Confidence</div>
-      <p class="hero-desc">Advanced dental care and aesthetic treatments with modern technology and a gentle touch. Experience world-class dentistry in a warm, comfortable environment.</p>
-      <div class="hero-btns">
-        <a href="#appointment" class="btn-primary">📅 Book Appointment</a>
-        <a href="#services" class="btn-secondary">▶ Our Services</a>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-tag"><span></span> Welcome To</div>
+        <h1 class="hero-name">Dr. <em>SURBHIS</em></h1>
+        <div class="hero-subtitle">Dental & Aesthetics</div>
+        <div class="hero-tagline">Where Your Smile Meets Confidence</div>
+        <p class="hero-desc">Advanced dental care and aesthetic treatments with modern technology and a gentle touch. Experience world-class dentistry in a warm, comfortable environment.</p>
+        <div class="hero-btns">
+          <a href="#appointment" class="btn-primary">📅 Book Appointment</a>
+          <a href="#services" class="btn-secondary">▶ Our Services</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num counter" data-target="15">0</span>+<span class="stat-label">Years Exp.</span></div>
+          <div class="stat"><span class="stat-num counter" data-target="5000">0</span>+<span class="stat-label">Patients</span></div>
+          <div class="stat"><span class="stat-num counter" data-target="50">0</span>+<span class="stat-label">Treatments</span></div>
+        </div>
       </div>
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-num counter" data-target="15">0</span>+<span class="stat-label">Years Exp.</span></div>
-        <div class="stat"><span class="stat-num counter" data-target="5000">0</span>+<span class="stat-label">Patients</span></div>
-        <div class="stat"><span class="stat-num counter" data-target="50">0</span>+<span class="stat-label">Treatments</span></div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-img-main">
-        <div class="hero-img-inner"><div style="font-size:5rem">👩‍⚕️</div><div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-top:4px">Dr. Surbhi</div><div style="font-size:.75rem;opacity:.9">BDS, MIDA</div></div>
-      </div>
-      <div class="hero-badge b1"><div class="badge-icon">🏆</div><div class="badge-text"><strong>15+ Years</strong><span>of Experience</span></div></div>
-      <div class="hero-badge b2"><div class="badge-icon">⭐</div><div class="badge-text"><strong>4.9 Rating</strong><span>5000+ Reviews</span></div></div>
-      <div class="features-row">
-        <div class="feat-item"><span class="feat-icon">🦷</span><span class="feat-label">Advanced<br>Technology</span></div>
-        <div class="feat-item"><span class="feat-icon">💉</span><span class="feat-label">Painless<br>Treatment</span></div>
-        <div class="feat-item"><span class="feat-icon">🧹</span><span class="feat-label">Sterilized<br>Environment</span></div>
-        <div class="feat-item" style="border:none"><span class="feat-icon">💝</span><span class="feat-label">Personalized<br>Care</span></div>
+      <div class="hero-visual">
+        <div class="hero-img-main glass">
+          <div class="hero-img-inner"><div style="font-size:5rem">👩‍⚕️</div><div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-top:4px">Dr. Surbhi</div><div style="font-size:.75rem;opacity:.9">BDS, MIDA</div></div>
+        </div>
+        <div class="hero-badge b1 glass"><div class="badge-icon">🏆</div><div class="badge-text"><strong>15+ Years</strong><span>of Experience</span></div></div>
+        <div class="hero-badge b2 glass"><div class="badge-icon">⭐</div><div class="badge-text"><strong>4.9 Rating</strong><span>5000+ Reviews</span></div></div>
+        <div class="features-row glass">
+          <div class="feat-item"><span class="feat-icon">🦷</span><span class="feat-label">Advanced<br>Technology</span></div>
+          <div class="feat-item"><span class="feat-icon">💉</span><span class="feat-label">Painless<br>Treatment</span></div>
+          <div class="feat-item"><span class="feat-icon">🧹</span><span class="feat-label">Sterilized<br>Environment</span></div>
+          <div class="feat-item" style="border:none"><span class="feat-icon">💝</span><span class="feat-label">Personalized<br>Care</span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <section id="about">
-  <div class="about-inner">
-    <div class="about-img-wrap reveal left">
-      <div class="about-img-main">👩‍⚕️</div>
-      <div class="about-img-accent">🦷</div>
-      <div class="about-img-stats"><div class="about-stat-grid"><div class="about-stat"><div class="about-stat-num">5K+</div><div class="about-stat-lbl">Patients</div></div><div class="about-stat"><div class="about-stat-num">15+</div><div class="about-stat-lbl">Exp. Yrs</div></div><div class="about-stat"><div class="about-stat-num">50+</div><div class="about-stat-lbl">Treatments</div></div><div class="about-stat"><div class="about-stat-num">100%</div><div class="about-stat-lbl">Satisfied</div></div></div></div>
-    </div>
-    <div class="about-content reveal right">
-      <div class="section-tag">About Us</div>
-      <h2 class="section-title">A Clinic Built on Trust,<br>Care & <span>Excellence</span></h2>
-      <div class="gold-line"></div>
-      <p class="section-desc" style="margin-top:14px">Dr. Surbhi's Dental & Aesthetics is a modern clinic dedicated to providing world-class dental and aesthetic treatments with a patient-first approach.</p>
-      <ul class="check-list"><li>Experienced & Caring Team</li><li>Advanced Dental Technology</li><li>Painless & Comfortable Treatment</li><li>Hygienic & Safe Environment</li><li>Personalized Patient Care</li></ul>
-      <div class="doctor-sig">Dr. Surbhi</div>
-      <div class="doctor-role">Founder & Chief Dentist · BDS, MIDA</div>
-      <div class="about-video-card"><div class="play-btn">▶</div><div style="color:var(--text-dark)"><strong>Watch Our Clinic Tour</strong><span style="display:block;font-size:.7rem;color:var(--text-light)">See our state-of-the-art facility</span></div></div>
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-img-wrap reveal left">
+        <div class="about-img-main glass">👩‍⚕️</div>
+        <div class="about-img-accent glass">🦷</div>
+        <div class="about-img-stats glass"><div class="about-stat-grid"><div class="about-stat"><div class="about-stat-num">5K+</div><div class="about-stat-lbl">Patients</div></div><div class="about-stat"><div class="about-stat-num">15+</div><div class="about-stat-lbl">Exp. Yrs</div></div><div class="about-stat"><div class="about-stat-num">50+</div><div class="about-stat-lbl">Treatments</div></div><div class="about-stat"><div class="about-stat-num">100%</div><div class="about-stat-lbl">Satisfied</div></div></div></div>
+      </div>
+      <div class="about-content reveal right">
+        <div class="section-tag">About Us</div>
+        <h2 class="section-title">A Clinic Built on Trust,<br>Care & <span>Excellence</span></h2>
+        <div class="gold-line"></div>
+        <p class="section-desc" style="margin-top:14px">Dr. Surbhi's Dental & Aesthetics is a modern clinic dedicated to providing world-class dental and aesthetic treatments with a patient-first approach.</p>
+        <ul class="check-list"><li>Experienced & Caring Team</li><li>Advanced Dental Technology</li><li>Painless & Comfortable Treatment</li><li>Hygienic & Safe Environment</li><li>Personalized Patient Care</li></ul>
+        <div class="doctor-sig">Dr. Surbhi</div>
+        <div class="doctor-role">Founder & Chief Dentist · BDS, MIDA</div>
+        <div class="about-video-card"><div class="play-btn">▶</div><div style="color:var(--text-dark)"><strong>Watch Our Clinic Tour</strong><span style="display:block;font-size:.7rem;color:var(--text-light)">See our state-of-the-art facility</span></div></div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="services">
-  <div class="services-inner">
+  <div class="container">
     <div class="services-header reveal"><div class="section-tag">Services</div><h2 class="section-title">Our Premium <span>Services</span></h2><p class="section-desc">We offer a wide range of dental & aesthetic treatments.</p><div class="gold-line"></div></div>
     <div class="services-img-banner reveal scale"></div>
     <div class="services-categories stagger-reveal">
-      <div class="service-category"><h3><span class="cat-icon">🦷</span> Dental Care</h3><div class="service-grid"><div class="service-card"><div class="sc-icon">🦷</div><h4>Teeth Whitening</h4><p>Advanced whitening treatments.</p></div><div class="service-card"><div class="sc-icon">🔩</div><h4>Dental Implants</h4><p>Durable & natural looking solutions.</p></div><div class="service-card"><div class="sc-icon">🔬</div><h4>Root Canal</h4><p>Painless modern technology.</p></div><div class="service-card"><div class="sc-icon">😁</div><h4>Smile Makeover</h4><p>Complete smile transformation.</p></div><div class="service-card"><div class="sc-icon">📐</div><h4>Orthodontics</h4><p>Braces & aligners for perfect smiles.</p></div><div class="service-card"><div class="sc-icon">👶</div><h4>Pediatric Dentistry</h4><p>Special care for kids.</p></div></div></div>
-      <div class="service-category"><h3><span class="cat-icon">✨</span> Aesthetic Treatments</h3><div class="service-grid"><div class="service-card"><div class="sc-icon">💉</div><h4>Botox</h4><p>Reduce wrinkles & fine lines.</p></div><div class="service-card"><div class="sc-icon">💆</div><h4>Dermal Fillers</h4><p>Safe & effective fillers.</p></div><div class="service-card"><div class="sc-icon">🌟</div><h4>Skin Rejuvenation</h4><p>Advanced rejuvenation therapies.</p></div><div class="service-card"><div class="sc-icon">🔴</div><h4>Laser Treatments</h4><p>Advanced laser solutions.</p></div><div class="service-card"><div class="sc-icon">⏳</div><h4>Anti-Aging</h4><p>Personalized for youthful glow.</p></div><div class="service-card"><div class="sc-icon">🎭</div><h4>Facial Contouring</h4><p>Sculpt your features beautifully.</p></div></div></div>
+      <div class="service-category"><h3><span class="cat-icon">🦷</span> Dental Care</h3><div class="service-grid"><div class="service-card glass"><div class="sc-icon">🦷</div><h4>Teeth Whitening</h4><p>Advanced whitening treatments.</p></div><div class="service-card glass"><div class="sc-icon">🔩</div><h4>Dental Implants</h4><p>Durable & natural looking solutions.</p></div><div class="service-card glass"><div class="sc-icon">🔬</div><h4>Root Canal</h4><p>Painless modern technology.</p></div><div class="service-card glass"><div class="sc-icon">😁</div><h4>Smile Makeover</h4><p>Complete smile transformation.</p></div><div class="service-card glass"><div class="sc-icon">📐</div><h4>Orthodontics</h4><p>Braces & aligners for perfect smiles.</p></div><div class="service-card glass"><div class="sc-icon">👶</div><h4>Pediatric Dentistry</h4><p>Special care for kids.</p></div></div></div>
+      <div class="service-category"><h3><span class="cat-icon">✨</span> Aesthetic Treatments</h3><div class="service-grid"><div class="service-card glass"><div class="sc-icon">💉</div><h4>Botox</h4><p>Reduce wrinkles & fine lines.</p></div><div class="service-card glass"><div class="sc-icon">💆</div><h4>Dermal Fillers</h4><p>Safe & effective fillers.</p></div><div class="service-card glass"><div class="sc-icon">🌟</div><h4>Skin Rejuvenation</h4><p>Advanced rejuvenation therapies.</p></div><div class="service-card glass"><div class="sc-icon">🔴</div><h4>Laser Treatments</h4><p>Advanced laser solutions.</p></div><div class="service-card glass"><div class="sc-icon">⏳</div><h4>Anti-Aging</h4><p>Personalized for youthful glow.</p></div><div class="service-card glass"><div class="sc-icon">🎭</div><h4>Facial Contouring</h4><p>Sculpt your features beautifully.</p></div></div></div>
     </div>
   </div>
 </section>
 
 <section id="gallery">
-  <div class="gallery-inner"><div class="reveal text-center" style="margin-bottom:14px"><div class="section-tag">Gallery</div><h2 class="section-title">Our Smile <span>Transformations</span></h2><div class="gold-line"></div></div><div class="gallery-tabs reveal"><button class="tab-btn active">Smile Makeover</button><button class="tab-btn">Teeth Whitening</button><button class="tab-btn">Dental Implants</button></div><div class="gallery-grid stagger-reveal"><div class="gallery-item"><div class="ba-split">😬😁</div><div class="gallery-label">Smile Makeover · 3 weeks</div></div><div class="gallery-item"><div class="ba-split">🦷✨</div><div class="gallery-label">Teeth Whitening · 1 session</div></div><div class="gallery-item"><div class="ba-split">😶😊</div><div class="gallery-label">Dental Implant · 6 weeks</div></div><div class="gallery-item"><div class="ba-split">😐😃</div><div class="gallery-label">Full Makeover · 4 weeks</div></div></div></div>
+  <div class="container">
+    <div class="reveal text-center" style="margin-bottom:14px"><div class="section-tag">Gallery</div><h2 class="section-title">Our Smile <span>Transformations</span></h2><div class="gold-line"></div></div><div class="gallery-tabs reveal"><button class="tab-btn active">Smile Makeover</button><button class="tab-btn">Teeth Whitening</button><button class="tab-btn">Dental Implants</button></div><div class="gallery-grid stagger-reveal"><div class="gallery-item glass"><div class="ba-split">😬😁</div><div class="gallery-label">Smile Makeover · 3 weeks</div></div><div class="gallery-item glass"><div class="ba-split">🦷✨</div><div class="gallery-label">Teeth Whitening · 1 session</div></div><div class="gallery-item glass"><div class="ba-split">😶😊</div><div class="gallery-label">Dental Implant · 6 weeks</div></div><div class="gallery-item glass"><div class="ba-split">😐😃</div><div class="gallery-label">Full Makeover · 4 weeks</div></div></div>
+  </div>
 </section>
 
 <section id="appointment">
-  <div class="appt-inner">
-    <div class="appt-form-card reveal left"><div class="section-tag">Appointment</div><h2 class="section-title">Book Your <span>Appointment</span></h2><p style="font-size:.82rem;color:var(--text-light);margin-bottom:20px">Schedule your visit with our experts.</p><div class="form-row"><div class="form-group"><label>Your Name</label><input type="text" placeholder="Full Name"></div><div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 00000 00000"></div></div><div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"></div><div class="form-row"><div class="form-group"><label>Select Service</label><select><option>Choose Service</option><option>Teeth Whitening</option><option>Dental Implants</option><option>Root Canal</option><option>Smile Makeover</option><option>Botox</option></select></div><div class="form-group"><label>Select Doctor</label><select><option>Dr. Surbhi</option></select></div></div><div class="form-row"><div class="form-group"><label>Preferred Date</label><input type="date"></div><div class="form-group"><label>Preferred Time</label><input type="time"></div></div><div class="form-group"><label>Your Message</label><textarea placeholder="Tell us about your concern..."></textarea></div><button class="btn-submit" type="button">📅 Book Appointment</button><button class="btn-wa" type="button" onclick="window.open('https://wa.me/919876543210','_blank')">💬 Book Via WhatsApp</button></div>
-    <div class="appt-why reveal right"><div class="section-tag">Why Choose Us?</div><h2 class="section-title">Expert Care <span>You Can Trust</span></h2><div class="gold-line"></div><div class="why-items"><div class="why-item"><div class="why-icon">🔬</div><div class="why-text"><strong>Advanced Technology</strong><span>State-of-the-art dental equipment for precise treatments.</span></div></div><div class="why-item"><div class="why-icon">💝</div><div class="why-text"><strong>Expert & Caring Team</strong><span>Decades of experience with genuine compassion.</span></div></div><div class="why-item"><div class="why-icon">😌</div><div class="why-text"><strong>Painless Treatments</strong><span>Pain-free techniques and gentle care.</span></div></div><div class="why-item"><div class="why-icon">🧹</div><div class="why-text"><strong>Hygienic Environment</strong><span>Strict sterilization protocols for safety.</span></div></div></div><div class="emergency-box"><h3>🚨 Emergency Care</h3><p>We're available 24/7 for dental emergencies</p><div class="phone">+91 98765 43210</div></div></div>
+  <div class="container">
+    <div class="appt-inner">
+      <div class="appt-form-card glass reveal left"><div class="section-tag">Appointment</div><h2 class="section-title">Book Your <span>Appointment</span></h2><p style="font-size:.82rem;color:var(--text-light);margin-bottom:20px">Schedule your visit with our experts.</p><div class="form-row"><div class="form-group"><label>Your Name</label><input type="text" placeholder="Full Name"></div><div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 00000 00000"></div></div><div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"></div><div class="form-row"><div class="form-group"><label>Select Service</label><select><option>Choose Service</option><option>Teeth Whitening</option><option>Dental Implants</option><option>Root Canal</option><option>Smile Makeover</option><option>Botox</option></select></div><div class="form-group"><label>Select Doctor</label><select><option>Dr. Surbhi</option></select></div></div><div class="form-row"><div class="form-group"><label>Preferred Date</label><input type="date"></div><div class="form-group"><label>Preferred Time</label><input type="time"></div></div><div class="form-group"><label>Your Message</label><textarea placeholder="Tell us about your concern..."></textarea></div><button class="btn-submit" type="button">📅 Book Appointment</button><button class="btn-wa" type="button" onclick="window.open('https://wa.me/919876543210','_blank')">💬 Book Via WhatsApp</button></div>
+      <div class="appt-why reveal right"><div class="section-tag">Why Choose Us?</div><h2 class="section-title">Expert Care <span>You Can Trust</span></h2><div class="gold-line"></div><div class="why-items"><div class="why-item glass"><div class="why-icon">🔬</div><div class="why-text"><strong>Advanced Technology</strong><span>State-of-the-art dental equipment for precise treatments.</span></div></div><div class="why-item glass"><div class="why-icon">💝</div><div class="why-text"><strong>Expert & Caring Team</strong><span>Decades of experience with genuine compassion.</span></div></div><div class="why-item glass"><div class="why-icon">😌</div><div class="why-text"><strong>Painless Treatments</strong><span>Pain-free techniques and gentle care.</span></div></div><div class="why-item glass"><div class="why-icon">🧹</div><div class="why-text"><strong>Hygienic Environment</strong><span>Strict sterilization protocols for safety.</span></div></div></div><div class="emergency-box"><h3>🚨 Emergency Care</h3><p>We're available 24/7 for dental emergencies</p><div class="phone">+91 98765 43210</div></div></div>
+    </div>
   </div>
 </section>
 
 <section id="testimonials">
-  <div class="test-inner"><div class="reveal text-center" style="margin-bottom:28px"><div class="section-tag">Testimonials</div><h2 class="section-title">What Our Patients <span>Say</span></h2><div class="gold-line"></div></div><div class="rating-hero reveal"><div class="rating-num">4.9</div><div><div class="rating-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><div class="rating-source">Based on 500+ Reviews</div></div></div><div class="test-grid stagger-reveal"><div class="test-card"><p class="test-text">"The best dental experience I have ever had. Dr. Surbhi is very professional and caring. My smile looks amazing!"</p><div class="test-author"><div class="test-avatar">R</div><div><div class="test-name">Rakha Sharma</div><div class="test-service">Smile Makeover</div></div><div style="margin-left:auto;color:#fbbf24">★★★★★</div></div></div><div class="test-card"><p class="test-text">"Painless treatment and amazing results. Highly recommended for everyone!"</p><div class="test-author"><div class="test-avatar">A</div><div><div class="test-name">Amit Verma</div><div class="test-service">Dental Implant</div></div><div style="margin-left:auto;color:#fbbf24">★★★★★</div></div></div><div class="test-card"><p class="test-text">"Great experience with skin treatment. Very happy with the results and care."</p><div class="test-author"><div class="test-avatar">N</div><div><div class="test-name">Neha Kapoor</div><div class="test-service">Skin Treatment</div></div><div style="margin-left:auto;color:#fbbf24">★★★★★</div></div></div></div></div>
-</section>
-
-<section id="contact">
-  <div class="contact-inner">
-    <div class="contact-info reveal left"><div class="section-tag">Contact</div><h2 class="section-title">We're Here to <span>Help You</span></h2><div class="gold-line"></div><div class="contact-items"><div class="contact-item"><div class="ci-icon">📍</div><div class="ci-text"><strong>Clinic Address</strong><p>123, Smile Street, Delhi – 110001</p></div></div><div class="contact-item"><div class="ci-icon">📞</div><div class="ci-text"><strong>Phone Number</strong><p>+91 98765 43210</p></div></div><div class="contact-item"><div class="ci-icon">📧</div><div class="ci-text"><strong>Email Address</strong><p>info@drsurbhisdental.com</p></div></div></div><table class="hours-table"><tr><td>Mon – Sat</td><td>10:00 AM – 8:00 PM</td></tr><tr><td>Sunday</td><td>Closed</td></tr></table><div class="social-links"><a class="social-link" href="#">📘</a><a class="social-link" href="#">📸</a><a class="social-link" href="#">💬</a></div></div>
-    <div class="reveal right" style="display:flex;flex-direction:column;gap:16px"><div class="map-container"><div style="text-align:center"><div style="font-size:2.5rem;margin-bottom:4px">📍</div><p style="font-size:.8rem;color:var(--text-mid)">123, Smile Street, Delhi</p></div></div><div class="connect-card"><h3>Let's Connect</h3><p>Follow us on social media for tips & updates</p><div class="connect-social"><div class="cs-btn">📘</div><div class="cs-btn">📸</div><div class="cs-btn">💬</div></div><div style="margin-top:14px"><div style="font-size:1.2rem;font-weight:700">+91 98765 43210</div></div></div></div>
+  <div class="container">
+    <div class="reveal text-center" style="margin-bottom:28px"><div class="section-tag">Testimonials</div><h2 class="section-title">What Our Patients <span>Say</span></h2><div class="gold-line"></div></div><div class="rating-hero reveal"><div class="rating-num">4.9</div><div><div class="rating-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><div class="rating-source">Based on 500+ Reviews</div></div></div><div class="test-grid stagger-reveal"><div class="test-card glass"><p class="test-text">"The best dental experience I have ever had. Dr. Surbhi is very professional and caring. My smile looks amazing!"</p><div class="test-author"><div class="test-avatar">R</div><div><div class="test-name">Rakha Sharma</div><div class="test-service">Smile Makeover</div></div><div style="margin-left:auto;color:#fbbf24">★★★★★</div></div></div><div class="test-card glass"><p class="test-text">"Painless treatment and amazing results. Highly recommended for everyone!"</p><div class="test-author"><div class="test-avatar">A</div><div><div class="test-name">Amit Verma</div><div class="test-service">Dental Implant</div></div><div style="margin-left:auto;color:#fbbf24">★★★★★</div></div></div><div class="test-card glass"><p class="test-text">"Great experience with skin treatment. Very happy with the results and care."</p><div class="test-author"><div class="test-avatar">N</div><div><div class="test-name">Neha Kapoor</div><div class="test-service">Skin Treatment</div></div><div style="margin-left:auto;color:#fbbf24">★★★★★</div></div></div></div>
   </div>
 </section>
 
-<footer><p>© 2025 Dr. Surbhi's Dental & Aesthetics. All Rights Reserved. <span>|</span> Designed with <span class="footer-gold">❤</span> for beautiful smiles</p></footer>
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-info reveal left"><div class="section-tag">Contact</div><h2 class="section-title">We're Here to <span>Help You</span></h2><div class="gold-line"></div><div class="contact-items"><div class="contact-item"><div class="ci-icon">📍</div><div class="ci-text"><strong>Clinic Address</strong><p>123, Smile Street, Delhi – 110001</p></div></div><div class="contact-item"><div class="ci-icon">📞</div><div class="ci-text"><strong>Phone Number</strong><p>+91 98765 43210</p></div></div><div class="contact-item"><div class="ci-icon">📧</div><div class="ci-text"><strong>Email Address</strong><p>info@drsurbhisdental.com</p></div></div></div><table class="hours-table"><tr><td>Mon – Sat</td><td>10:00 AM – 8:00 PM</td></tr><tr><td>Sunday</td><td>Closed</td></tr></table><div class="social-links"><a class="social-link" href="#">📘</a><a class="social-link" href="#">📸</a><a class="social-link" href="#">💬</a></div></div>
+      <div class="reveal right" style="display:flex;flex-direction:column;gap:16px"><div class="map-container glass"><div style="text-align:center"><div style="font-size:2.5rem;margin-bottom:4px">📍</div><p style="font-size:.8rem;color:var(--text-mid)">123, Smile Street, Delhi</p></div></div><div class="connect-card"><h3>Let's Connect</h3><p>Follow us on social media for tips & updates</p><div class="connect-social"><div class="cs-btn">📘</div><div class="cs-btn">📸</div><div class="cs-btn">💬</div></div><div style="margin-top:14px"><div style="font-size:1.2rem;font-weight:700">+91 98765 43210</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="container"><p>© 2025 Dr. Surbhi's Dental & Aesthetics. All Rights Reserved. <span>|</span> Designed with <span class="footer-gold">❤</span> for beautiful smiles</p></div></footer>
 
 <script>
-/* LOADER */
 function hideL(){var l=document.getElementById('loader');if(l&&!l.classList.contains('hide'))l.classList.add('hide')}
-window.addEventListener('load',function(){setTimeout(hideL,1400)});
-setTimeout(hideL,3500);
+window.addEventListener('load',function(){setTimeout(hideL,1400)});setTimeout(hideL,3500);
 
-/* BACKGROUND CANVAS ANIMATION */
-const canvas = document.getElementById('bgCanvas');
-const ctx = canvas.getContext('2d');
-let particles = [];
+const canvas=document.getElementById('bgCanvas');const ctx=canvas.getContext('2d');let particles=[];let shootingStars=[];
+function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;initParticles()}
+function getTheme(){return document.documentElement.getAttribute('data-theme')==='light'?'light':'dark'}
+function initParticles(){particles=[];const theme=getTheme();const count=theme==='dark'?150:25;
+for(let i=0;i<count;i++){if(theme==='dark'){particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.5+0.5,dx:(Math.random()-0.5)*0.1,dy:(Math.random()-0.5)*0.1,opacity:Math.random()*0.5+0.2,pulse:Math.random()*Math.PI*2})}else{particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*30+10,dx:(Math.random()-0.5)*0.3,dy:-Math.random()*0.5-0.1,opacity:Math.random()*0.08+0.02})}}shootingStars=[]}
+function drawParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);const theme=getTheme();
+if(theme==='dark'){particles.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${p.opacity*(0.6+0.4*Math.sin(p.pulse))})`;ctx.fill();p.x+=p.dx;p.y+=p.dy;p.pulse+=0.02;if(p.x<0||p.x>canvas.width)p.dx*=-1;if(p.y<0||p.y>canvas.height)p.dy*=-1});if(Math.random()<0.005){shootingStars.push({x:Math.random()*canvas.width,y:0,len:Math.random()*80+40,speed:Math.random()*8+6,opacity:1})}shootingStars.forEach((s,i)=>{ctx.beginPath();ctx.moveTo(s.x,s.y);ctx.lineTo(s.x-s.len,s.y+s.len);ctx.strokeStyle=`rgba(255,255,255,${s.opacity})`;ctx.lineWidth=1.5;ctx.stroke();s.x+=s.speed;s.y+=s.speed;s.opacity-=0.015;if(s.opacity<=0)shootingStars.splice(i,1)})}
+else{particles.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.strokeStyle=`rgba(139,92,246,${p.opacity+0.05})`;ctx.lineWidth=1;ctx.stroke();ctx.fillStyle=`rgba(139,92,246,${p.opacity})`;ctx.fill();p.x+=p.dx;p.y+=p.dy;if(p.y+p.r<0){p.y=canvas.height+p.r;p.x=Math.random()*canvas.width}if(p.x<-p.r||p.x>canvas.width+p.r)p.dx*=-1})}
+requestAnimationFrame(drawParticles)}
+window.addEventListener('resize',resizeCanvas);resizeCanvas();drawParticles();
 
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    initParticles();
-}
-
-function getTheme() {
-    return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-}
-
-function initParticles() {
-    particles = [];
-    const theme = getTheme();
-    const count = theme === 'dark' ? 100 : 30;
-    
-    for (let i = 0; i < count; i++) {
-        if (theme === 'dark') {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                r: Math.random() * 1.5 + 0.5,
-                dx: (Math.random() - 0.5) * 0.2,
-                dy: (Math.random() - 0.5) * 0.2,
-                opacity: Math.random() * 0.5 + 0.2,
-                pulse: Math.random() * Math.PI * 2
-            });
-        } else {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                r: Math.random() * 25 + 10,
-                dx: (Math.random() - 0.5) * 0.4,
-                dy: -Math.random() * 0.6 - 0.2,
-                opacity: Math.random() * 0.12 + 0.04
-            });
-        }
-    }
-}
-
-function drawParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    const theme = getTheme();
-
-    if (theme === 'dark') {
-        particles.forEach(p => {
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity * (0.6 + 0.4 * Math.sin(p.pulse))})`;
-            ctx.fill();
-            p.x += p.dx;
-            p.y += p.dy;
-            p.pulse += 0.02;
-            if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-            if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-        });
-    } else {
-        particles.forEach(p => {
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.strokeStyle = `rgba(139, 92, 246, ${p.opacity + 0.1})`;
-            ctx.lineWidth = 1;
-            ctx.stroke();
-            ctx.fillStyle = `rgba(139, 92, 246, ${p.opacity})`;
-            ctx.fill();
-            p.x += p.dx;
-            p.y += p.dy;
-            if (p.y + p.r < 0) {
-                p.y = canvas.height + p.r;
-                p.x = Math.random() * canvas.width;
-            }
-            if (p.x < -p.r || p.x > canvas.width + p.r) p.dx *= -1;
-        });
-    }
-    requestAnimationFrame(drawParticles);
-}
-
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
-drawParticles();
-
-/* THEME TOGGLE */
 var themeBtn=document.getElementById('themeToggleBtn');
-function applyTheme(t){
-    try{if(t==='light')document.documentElement.setAttribute('data-theme','light');else document.documentElement.removeAttribute('data-theme')}catch(e){}
-    try{localStorage.setItem('dr-theme',t)}catch(e){}
-    initParticles();
-}
-var sT='dark';try{sT=localStorage.getItem('dr-theme')||'dark'}catch(e){}
-applyTheme(sT);
+function applyTheme(t){try{if(t==='light')document.documentElement.setAttribute('data-theme','light');else document.documentElement.removeAttribute('data-theme')}catch(e){}try{localStorage.setItem('dr-theme',t)}catch(e){}initParticles()}
+var sT='dark';try{sT=localStorage.getItem('dr-theme')||'dark'}catch(e){}applyTheme(sT);
 if(themeBtn){themeBtn.addEventListener('click',function(){var iL=document.documentElement.getAttribute('data-theme')==='light';applyTheme(iL?'dark':'light')})}
 
-/* MOBILE MENU */
-var menuToggle=document.getElementById('menuToggle');
-var closeMenu=document.getElementById('closeMenu');
-var mobileMenu=document.getElementById('mobileMenu');
-var sidebarOverlay=document.getElementById('sidebarOverlay');
-var sidebarLinks=document.querySelectorAll('.sidebar-links a');
+var menuToggle=document.getElementById('menuToggle');var closeMenu=document.getElementById('closeMenu');var mobileMenu=document.getElementById('mobileMenu');var sidebarOverlay=document.getElementById('sidebarOverlay');var sidebarLinks=document.querySelectorAll('.sidebar-links a');
 function openMenu(){mobileMenu.classList.add('active');sidebarOverlay.classList.add('active');document.body.style.overflow='hidden'}
 function closeMenuFn(){mobileMenu.classList.remove('active');sidebarOverlay.classList.remove('active');document.body.style.overflow=''}
-if(menuToggle)menuToggle.addEventListener('click',openMenu);
-if(closeMenu)closeMenu.addEventListener('click',closeMenuFn);
-if(sidebarOverlay)sidebarOverlay.addEventListener('click',closeMenuFn);
+if(menuToggle)menuToggle.addEventListener('click',openMenu);if(closeMenu)closeMenu.addEventListener('click',closeMenuFn);if(sidebarOverlay)sidebarOverlay.addEventListener('click',closeMenuFn);
 for(var i=0;i<sidebarLinks.length;i++){sidebarLinks[i].addEventListener('click',closeMenuFn)}
 
-/* CURSOR */
 var isD=window.innerWidth>900&&!('ontouchstart' in window);
-if(isD){
-  var cu=document.getElementById('cursor'),ri=document.getElementById('cursor-ring'),mX=0,mY=0,rX=0,rY=0;
-  document.addEventListener('mousemove',function(e){mX=e.clientX;mY=e.clientY;if(cu){cu.style.left=mX+'px';cu.style.top=mY+'px'}});
-  (function aR(){rX+=(mX-rX)*.15;rY+=(mY-rY)*.15;if(ri){ri.style.left=rX+'px';ri.style.top=rY+'px'}requestAnimationFrame(aR)})();
-}
+if(isD){var cu=document.getElementById('cursor'),ri=document.getElementById('cursor-ring'),mX=0,mY=0,rX=0,rY=0;document.addEventListener('mousemove',function(e){mX=e.clientX;mY=e.clientY;if(cu){cu.style.left=mX+'px';cu.style.top=mY+'px'}});(function aR(){rX+=(mX-rX)*.15;rY+=(mY-rY)*.15;if(ri){ri.style.left=rX+'px';ri.style.top=rY+'px'}requestAnimationFrame(aR)})()}
 
-/* NAVBAR & SCROLL */
 var nb=document.getElementById('navbar'),bt=document.getElementById('back-to-top'),pb=document.getElementById('progress-bar');
-window.addEventListener('scroll',function(){
-  if(nb)nb.classList.toggle('scrolled',window.scrollY>50);
-  if(bt)bt.classList.toggle('visible',window.scrollY>400);
-  if(pb){var h=document.body.scrollHeight-window.innerHeight;pb.style.width=(h>0?(window.scrollY/h)*100:0)+'%'}
-},{passive:true});
+window.addEventListener('scroll',function(){if(nb)nb.classList.toggle('scrolled',window.scrollY>50);if(bt)bt.classList.toggle('visible',window.scrollY>400);if(pb){var h=document.body.scrollHeight-window.innerHeight;pb.style.width=(h>0?(window.scrollY/h)*100:0)+'%'}},{passive:true});
 if(bt)bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
 
-/* REVEAL */
-var rE=document.querySelectorAll('.reveal,.stagger-reveal');
-var oB=new IntersectionObserver(function(e){for(var i=0;i<e.length;i++)if(e[i].isIntersecting)e[i].target.classList.add('visible')},{threshold:.1});
-for(var i=0;i<rE.length;i++)oB.observe(rE[i]);
+var rE=document.querySelectorAll('.reveal,.stagger-reveal');var oB=new IntersectionObserver(function(e){for(var i=0;i<e.length;i++)if(e[i].isIntersecting)e[i].target.classList.add('visible')},{threshold:.1});for(var i=0;i<rE.length;i++)oB.observe(rE[i]);
 
-/* COUNTER */
 function aC(el,tg){var c=0,st=Math.max(1,tg/50);var tm=setInterval(function(){c+=st;if(c>=tg){c=tg;clearInterval(tm)}el.textContent=Math.round(c).toLocaleString()},30)}
-var cE=document.querySelectorAll('.counter');
-var cO=new IntersectionObserver(function(e){for(var i=0;i<e.length;i++){if(e[i].isIntersecting){var t=parseInt(e[i].getAttribute('data-target'));if(!isNaN(t))aC(e[i],t);cO.unobserve(e[i])}}},{threshold:.5});
-for(var i=0;i<cE.length;i++)cO.observe(cE[i]);
+var cE=document.querySelectorAll('.counter');var cO=new IntersectionObserver(function(e){for(var i=0;i<e.length;i++){if(e[i].isIntersecting){var t=parseInt(e[i].getAttribute('data-target'));if(!isNaN(t))aC(e[i],t);cO.unobserve(e[i])}}},{threshold:.5});for(var i=0;i<cE.length;i++)cO.observe(cE[i]);
 
-/* GALLERY TABS */
-var tB=document.querySelectorAll('.tab-btn');
-for(var i=0;i<tB.length;i++){tB[i].addEventListener('click',function(){for(var j=0;j<tB.length;j++)tB[j].classList.remove('active');this.classList.add('active')})}
+var tB=document.querySelectorAll('.tab-btn');for(var i=0;i<tB.length;i++){tB[i].addEventListener('click',function(){for(var j=0;j<tB.length;j++)tB[j].classList.remove('active');this.classList.add('active')})}
 
-/* TILT */
 if(isD){var tC=document.querySelectorAll('.service-card,.test-card,.why-item');for(var i=0;i<tC.length;i++){(function(c){c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();var x=((e.clientX-r.left)/r.width-.5)*6;var y=((e.clientY-r.top)/r.height-.5)*6;c.style.transform='perspective(500px) rotateX('+(-y)+'deg) rotateY('+x+'deg) translateY(-3px)'});c.addEventListener('mouseleave',function(){c.style.transform=''})})(tC[i])}}
 
-/* TYPING */
-var tl=document.querySelector('.hero-tagline');
-if(tl){var ft=tl.textContent;tl.textContent='';tl.style.minHeight='1.4em';var ci=0;setTimeout(function(){var ti=setInterval(function(){if(ci<ft.length){tl.textContent+=ft[ci];ci++}else clearInterval(ti)},55)},1200)}
+var tl=document.querySelector('.hero-tagline');if(tl){var ft=tl.textContent;tl.textContent='';tl.style.minHeight='1.4em';var ci=0;setTimeout(function(){var ti=setInterval(function(){if(ci<ft.length){tl.textContent+=ft[ci];ci++}else clearInterval(ti)},55)},1200)}
 </script>
 </body>
 </html>
